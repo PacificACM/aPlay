@@ -1,0 +1,15 @@
+C:\Users\Cameron\Desktop\aPlay\taglib-sharp-2.0.3.4-windows\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Cameron\Desktop\aPlay\taglib-sharp-2.0.3.4-windows\bin\Debug\taglib-sharp.dll
+C:\Users\Cameron\Desktop\aPlay\taglib-sharp-2.0.3.4-windows\bin\Debug\taglib-sharp.pdb
+C:\Users\Cameron\Desktop\aPlay\taglib-sharp-2.0.3.4-windows\obj\Debug\taglib-sharp.dll
+C:\Users\Cameron\Desktop\aPlay\taglib-sharp-2.0.3.4-windows\obj\Debug\taglib-sharp.pdb
+D:\Cameron\My Documents\Visual Studio 2008\Projects\aPlay\taglib-sharp-2.0.3.4-windows\bin\Debug\taglib-sharp.dll
+D:\Cameron\My Documents\Visual Studio 2008\Projects\aPlay\taglib-sharp-2.0.3.4-windows\bin\Debug\taglib-sharp.pdb
+D:\Cameron\My Documents\Visual Studio 2008\Projects\aPlay\taglib-sharp-2.0.3.4-windows\obj\Debug\ResolveAssemblyReference.cache
+D:\Cameron\My Documents\Visual Studio 2008\Projects\aPlay\taglib-sharp-2.0.3.4-windows\obj\Debug\taglib-sharp.dll
+D:\Cameron\My Documents\Visual Studio 2008\Projects\aPlay\taglib-sharp-2.0.3.4-windows\obj\Debug\taglib-sharp.pdb
+D:\Cameron\Documents\Visual Studio 2008\Projects\aPlay\taglib-sharp-2.0.3.4-windows\bin\Debug\taglib-sharp.dll
+D:\Cameron\Documents\Visual Studio 2008\Projects\aPlay\taglib-sharp-2.0.3.4-windows\bin\Debug\taglib-sharp.pdb
+D:\Cameron\Documents\Visual Studio 2008\Projects\aPlay\taglib-sharp-2.0.3.4-windows\obj\Debug\ResolveAssemblyReference.cache
+D:\Cameron\Documents\Visual Studio 2008\Projects\aPlay\taglib-sharp-2.0.3.4-windows\obj\Debug\taglib-sharp.dll
+D:\Cameron\Documents\Visual Studio 2008\Projects\aPlay\taglib-sharp-2.0.3.4-windows\obj\Debug\taglib-sharp.pdb
