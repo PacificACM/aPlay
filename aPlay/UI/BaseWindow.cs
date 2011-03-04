@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 
 
-namespace Xcom.aPlay.UI
+namespace aPlay.UI
 {
    
     public partial class BaseWindow : Form
@@ -80,7 +80,7 @@ namespace Xcom.aPlay.UI
 
             if(!this.DesignMode&&Environment.OSVersion.Platform == PlatformID.Win32NT &&Environment.OSVersion.Version.Major>=6&&Platform.Windows.DWM.DwmIsCompositionEnabled())
             {
-                Platform.Windows.DWM.MARGINS margins = new Xcom.aPlay.Platform.Windows.DWM.MARGINS(_borderMargins.Left,_borderMargins.Top,_borderMargins.Right,_borderMargins.Bottom);
+                Platform.Windows.DWM.MARGINS margins = new aPlay.Platform.Windows.DWM.MARGINS(_borderMargins.Left,_borderMargins.Top,_borderMargins.Right,_borderMargins.Bottom);
                 Platform.Windows.DWM.DwmExtendFrameIntoClientArea(this.Handle,margins);
             }
         }

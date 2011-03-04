@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SQL = System.Data.SQLite;
 using System.IO;
-namespace Xcom.aPlay.Lib
+namespace aPlay.Lib
 {
 
     class Library:ILibrary

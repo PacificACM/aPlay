@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Xcom.aPlay.Lib;
+using aPlay.Lib;
 using System.IO;
-using Xcom.aPlay.Util;
-using System.Windows.Forms;
+using aPlay.Util;
+//using System.Windows.Forms;
 using aPlay;
 using System.Threading;
-using Xcom.aPlay.UI;
+using aPlay.UI;
 
-namespace Xcom.aPlay
+namespace aPlay
 {
     public class aPlayApp
     {
@@ -43,7 +43,8 @@ namespace Xcom.aPlay
             catch(Exception e)
             {
                 //Well this puts us in a pickle
-                System.Windows.Forms.MessageBox.Show("Unable to start αPlay! Could not find nor create αPlay directory.\r\nError: " + e.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			
+             //   System.Windows.Forms.MessageBox.Show("Unable to start αPlay! Could not find nor create αPlay directory.\r\nError: " + e.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
@@ -52,10 +53,10 @@ namespace Xcom.aPlay
             _libraries.Add(mainLib);
 
             //Start UI thread
-            _uiThread = new Thread(new ThreadStart(delegate {Application.Run(new MainWindow(this));}));
-            _uiThread.SetApartmentState(ApartmentState.STA);
-            _uiThread.IsBackground = false;
-            _uiThread.Start();
+           // _uiThread = new Thread(new ThreadStart(delegate {Application.Run(new MainWindow(this));}));
+            //_uiThread.SetApartmentState(ApartmentState.STA);
+            //_uiThread.IsBackground = false;
+            //_uiThread.Start();
 
         }
 

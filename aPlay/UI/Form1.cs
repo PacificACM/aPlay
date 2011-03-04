@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,10 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Xcom.aPlay.Lib;
+using aPlay.Lib;
 using System.IO;
-using Xcom.aPlay.FileIO;
-using Xcom.aPlay.UI;
+using aPlay.FileIO;
+using aPlay.UI;
 
 namespace aPlay
 {
@@ -26,7 +26,7 @@ namespace aPlay
             b[0] = 25;
             
 
-            //prim = new Xcom.aPlay.Lib.Library("lib.db");
+            //prim = new aPlay.Lib.Library("lib.db");
             //navigationBar1.Libraries = new ILibrary[] { prim };
         }
 
@@ -42,7 +42,7 @@ namespace aPlay
                 progressBar1.Value = (int)f;
             label1.Text = s;
         }
-        private void navigationBar1_NavigationItemedSelected(object sender, Xcom.aPlay.UI.NavigationBar.NavigationItemSelectedEventArgs e)
+        private void navigationBar1_NavigationItemedSelected(object sender, aPlay.UI.NavigationBar.NavigationItemSelectedEventArgs e)
         {
             //libraryViewer1.SetReader(e.LibReader);
         }

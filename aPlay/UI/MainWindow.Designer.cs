@@ -1,4 +1,4 @@
-﻿namespace Xcom.aPlay.UI
+namespace aPlay.UI
 {
     partial class MainWindow
     {
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.libraryViewer1 = new Xcom.aPlay.UI.LibraryViewer();
-            this.navigationBar1 = new Xcom.aPlay.UI.NavigationBar();
+            this.libraryViewer1 = new aPlay.UI.LibraryViewer();
+            this.navigationBar1 = new aPlay.UI.NavigationBar();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -48,7 +48,7 @@
             this.navigationBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.navigationBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(200)))), ((int)(((byte)(175)))), ((int)(((byte)(200)))));
-            this.navigationBar1.Libraries = new Xcom.aPlay.Lib.ILibrary[0];
+            this.navigationBar1.Libraries = new aPlay.Lib.ILibrary[0];
             this.navigationBar1.Location = new System.Drawing.Point(0, 55);
             this.navigationBar1.Name = "navigationBar1";
             this.navigationBar1.Size = new System.Drawing.Size(154, 217);

@@ -1,4 +1,4 @@
-﻿namespace Xcom.aPlay.UI
+namespace aPlay.UI
 {
     partial class LibraryViewer
     {

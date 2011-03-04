@@ -1,4 +1,4 @@
-﻿namespace aPlay
+namespace aPlay
 {
     partial class Form1
     {
@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.libraryViewer1 = new Xcom.aPlay.UI.LibraryViewer();
-            this.navigationBar1 = new Xcom.aPlay.UI.NavigationBar();
+            this.libraryViewer1 = new aPlay.UI.LibraryViewer();
+            this.navigationBar1 = new aPlay.UI.NavigationBar();
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button2 = new System.Windows.Forms.Button();
@@ -61,12 +61,12 @@
             // 
             this.navigationBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            this.navigationBar1.Libraries = new Xcom.aPlay.Lib.ILibrary[0];
+            this.navigationBar1.Libraries = new aPlay.Lib.ILibrary[0];
             this.navigationBar1.Location = new System.Drawing.Point(2, 0);
             this.navigationBar1.Name = "navigationBar1";
             this.navigationBar1.Size = new System.Drawing.Size(150, 312);
             this.navigationBar1.TabIndex = 1;
-            this.navigationBar1.NavigationItemedSelected += new System.EventHandler<Xcom.aPlay.UI.NavigationBar.NavigationItemSelectedEventArgs>(this.navigationBar1_NavigationItemedSelected);
+            this.navigationBar1.NavigationItemedSelected += new System.EventHandler<aPlay.UI.NavigationBar.NavigationItemSelectedEventArgs>(this.navigationBar1_NavigationItemedSelected);
             // 
             // label1
             // 
@@ -118,8 +118,8 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private Xcom.aPlay.UI.NavigationBar navigationBar1;
-        private Xcom.aPlay.UI.LibraryViewer libraryViewer1;
+        private aPlay.UI.NavigationBar navigationBar1;
+        private aPlay.UI.LibraryViewer libraryViewer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button button2;

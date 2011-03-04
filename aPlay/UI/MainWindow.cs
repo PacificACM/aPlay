@@ -5,13 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Xcom.aPlay.Lib;
-using Xcom.aPlay.FileIO;
+using aPlay.Lib;
+using aPlay.FileIO;
 using System.IO;
 
-namespace Xcom.aPlay.UI
+namespace aPlay.UI
 {
-    public partial class MainWindow : Xcom.aPlay.UI.BaseWindow
+    public partial class MainWindow : aPlay.UI.BaseWindow
     {
         aPlayApp _app;
         public MainWindow()

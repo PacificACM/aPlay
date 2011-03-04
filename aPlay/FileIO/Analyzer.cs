@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
-using Xcom.aPlay.Lib;
+using aPlay.Lib;
 
-namespace Xcom.aPlay.FileIO
+namespace aPlay.FileIO
 {
     /// <summary>
     /// Absract class that gets info for a files/stream or w/e
@@ -66,7 +66,7 @@ namespace Xcom.aPlay.FileIO
         /// <returns>A 64-bit hash.</returns>
         public static ulong GetHashByStream(Stream s)
         {
-            Xcom.aPlay.Util.Crc64 a = new Xcom.aPlay.Util.Crc64();
+            aPlay.Util.Crc64 a = new aPlay.Util.Crc64();
             return BitConverter.ToUInt64(a.ComputeHash(s), 0);
         }
         protected static ulong GetPrintByStream(Stream s)

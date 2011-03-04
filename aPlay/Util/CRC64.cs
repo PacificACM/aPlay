@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Security.Cryptography;
 
-namespace Xcom.aPlay.Util
+namespace aPlay.Util
 {
     public class Crc64 : HashAlgorithm
     {

@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Xcom.aPlay.Lib
+namespace aPlay.Lib
 {
    /// <summary>
    /// Represets a category of media item types in a library
