@@ -23,40 +23,49 @@
 using System;
 using aPlay.Lib;
 using Gtk;
+using System.Collections.Generic;
 namespace aPlay_GUI
 {
 	[System.ComponentModel.ToolboxItem(true)]
 	public partial class LibraryViewer : Gtk.Bin
 	{
+        Category _category;
 		ListStore store;
 		public LibraryViewer ()
 		{
 			this.Build ();
-		
+            _category = Category.Music;
 			Init();
 		}
 		
 		void Init()
 		{
-			TreeViewColumn title = new TreeViewColumn();
-			title.Title = "Title";
-			treeview2.AppendColumn(title);
-			TreeViewColumn path = new TreeViewColumn();
-			path.Title = "Path";
-			treeview2.AppendColumn(path);
-			
-			ListStore list = new ListStore(typeof(string),typeof(string));
+
+
+            TreeViewColumn col = null;
+            Type[] types = new Type[_category.Fields.Length];
+            for(int i = 0; i < types.Length;i++)
+            {
+                 col = new TreeViewColumn();
+                col.Title = _category.Fields[i].DisplayName;
+                col.SortIndicator = true;
+                col.SortColumnId = i;
+                treeview2.AppendColumn(col);
+                types[i] = _category.Fields[i].DataType;
+            }
+            
+			ListStore list = new ListStore(types);
 			treeview2.Model = list;
-			
-			CellRendererText titleRender = new CellRendererText();
-			title.PackStart(titleRender,true);
-			
-			CellRendererText pathRender = new CellRendererText();
-			
-			path.PackStart(pathRender,true);
-			
-			title.AddAttribute(titleRender,"text",0);
-			path.AddAttribute(pathRender,"text",1);
+           
+            for (int i = 0; i <treeview2.Columns.Length; i++)
+            {
+                col = treeview2.Columns[i];
+
+                CellRendererText render = new CellRendererText();
+                col.PackStart(render, true);
+                col.AddAttribute(render, "text", i);
+            }
+
 			
 			store = list;
 		}
@@ -68,10 +77,17 @@ namespace aPlay_GUI
 		/// </param>
 		public void SetReader(ILibraryReader lib)
 		{
+            
 			store.Clear();
+            
 			foreach(MediaItem item in lib)
 			{
-				store.AppendValues(item.Title,item.Path);
+                List<object> values = new List<object>();
+                for (int i = 0; i < _category.Fields.Length; i++)
+                {
+                    values.Add(item[_category.Fields[i]]);
+                }
+				store.AppendValues(values.ToArray());
 			}
 			
 		}
@@ -80,7 +96,17 @@ namespace aPlay_GUI
 		
 			TreeIter iter;
 			store.GetIter (out iter, args.Path);
-			string path = store.GetValue(iter,1) as string;
+            string path = "";
+            for(int i = 0; i < treeview2.Columns.Length;i++)
+            {
+                if(treeview2.Columns[i].Title == "Path")
+                {
+                    path = store.GetValue(iter,i) as string;
+                    break;
+                }
+
+            }
+		
 			aPlay.Media.Player player = new aPlay.Media.Player(path);
 			player.Play();
 		}

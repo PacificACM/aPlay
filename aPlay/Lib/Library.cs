@@ -30,7 +30,7 @@ namespace aPlay.Lib
 
             _selectFromCat = _connection.CreateCommand();
    
-            _selectFromCat.CommandText = "SELECT * FROM @categoryV ";
+            _selectFromCat.CommandText = "SELECT * FROM @categoryV ORDER BY Title";
 
 
             _selectCount = _connection.CreateCommand();
@@ -201,7 +201,7 @@ namespace aPlay.Lib
 
                     _command_select.CommandText = _command_select.CommandText.Replace("@start", "0");
 
-                
+                   
 
                     _reader = _command_select.ExecuteReader();
                     _cat = c;

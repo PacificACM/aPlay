@@ -36,6 +36,7 @@ namespace aPlay.FileIO
 	/// </summary>
     public class MediaFinder
     {
+
 		/// <summary>
 		/// Delegate used to call back the current status of media fetching
 		/// </summary>
@@ -48,6 +49,7 @@ namespace aPlay.FileIO
             _lib = lib;
             _musicDir = music;
             _watchers = new FileSystemWatcher[music.Length];
+            //Create file watchers that monitor for new files.
             for (int i = 0; i < _watchers.Length; i++)
             {
                 _watchers[i] = new FileSystemWatcher(music[i].FullName);
@@ -65,33 +67,38 @@ namespace aPlay.FileIO
             
             //Calculate the size of the sub_progress for each folder.
             float prog_folderSLength = 100f/_musicDir.Length;
-
+            //Scan all the music library directories
             for (int i = 0; i < _musicDir.Length; i++)
             {
-                Stack<FileInfo> files = new Stack<FileInfo>();
+                List<FileInfo> files = new List<FileInfo>();
+                //Get all supported music format extensions
                 ReadOnlyCollection<FileType> musicTypes = FileType.MusicFileTypes ;
                 try
                 {
+#if DEBUG
                     if (prog != null)
-                        prog(i*prog_folderSLength,"Finding files in: "+_musicDir[i].Name+".");
+                        prog(i * prog_folderSLength, "Finding files in: " + _musicDir[i].Name + ".");
+#endif
+                    //Get all the files with the supported extensions in the current folder
                     for (int a = 0; a < musicTypes.Count; a++)
                     {
-                        foreach (FileInfo f in _musicDir[i].GetFiles("*." + musicTypes[a].FileExt, SearchOption.AllDirectories))
-                            files.Push(f);
-                    }
 
+                        files.AddRange(_musicDir[i].GetFiles("*." + musicTypes[a].FileExt, SearchOption.AllDirectories));
+
+                    }
+                    //Make sures the progress shows up in a logical order
+                    files.Sort(delegate(FileInfo x, FileInfo y) { return x.FullName.CompareTo(y.FullName); });
                     float prog_fileSLength = prog_folderSLength / (float)files.Count;
-					int c = 0;
-                    while(files.Count>0)
+                    for (int c = 0; c < files.Count; c++)
                     {
-						c++;
-                        FileInfo current = files.Pop();
+                        c++;
+                        FileInfo current = files[c];
                         float prog_current = i * prog_folderSLength + c * prog_fileSLength;
                         if (prog != null)
-                            prog(prog_current, "Analyzing file: "+current.Name);
+                            prog(prog_current, "Analyzing file: " + current.Name);
 #if DEBUG
                         else
-                            System.Console.WriteLine(prog_current+" Analyzing file: "+current.Name);
+                            System.Console.WriteLine(prog_current + " Analyzing file: " + current.Name);
 #endif
                         try
                         {
@@ -110,7 +117,7 @@ namespace aPlay.FileIO
 
                                 item = AnayalizeFile(current, item);
 
-                                //_lib.UpdateItem(item);
+                                _lib.UpdateItem(item);
                             }
                         }
                         catch (Exception ex)
@@ -122,10 +129,16 @@ namespace aPlay.FileIO
                     }
                     if (prog != null)
                         prog(100, "Finished.");
-                }catch(DirectoryNotFoundException)
+                }
+                catch (DirectoryNotFoundException)
                 {
-                    if(prog!=null)
+                    if (prog != null)
                         prog(-2, "Could not find directory: " + _musicDir[i].FullName + "!");
+                }
+                catch (Exception ex)
+                {
+                    if (prog != null)
+                        prog(-2, "Error in searching for files: "+ex.Message);
                 }
             }
         }
@@ -158,7 +171,7 @@ namespace aPlay.FileIO
             item[CategoryField.Path] = file.FullName;
             return item;
         }
-
+        //TODO Implement file created handler for media finder
         void MediaFinder_Music_Created(object sender, FileSystemEventArgs e)
         {
             throw new NotImplementedException();
